@@ -3,6 +3,11 @@ dotenv.config();
 const { MongoClient} = require('mongodb');
 
 const client = new MongoClient(process.env.MONGODB_URI)
+if (process.env.MONGODB_URI === undefined) { 
+    console.log("SHIT");
+} else { 
+    console.log("OK")
+}
 async function RunDBConnect() {  
     const collection = client.db("ESOFT").collection("users")  
     let data = []; 
